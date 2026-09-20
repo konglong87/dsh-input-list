@@ -1,54 +1,39 @@
+<div align="center">
+
 # dsh-input-list
 
-**dsh 常用内容插件：保存常用提示词，点击即可填入输入框。**
+**让常用提示词，一键回到 dsh 输入框。**
 
-把反复输入的代码审查要求、写作模板、项目背景保存为列表，在对话输入框旁随时调用。
-点击条目只会追加到草稿，不覆盖已有文字，也不会自动发送消息。
+保存、编辑、删除和复用你的常用内容，点击后追加到当前草稿，不自动发送。
 
-## 功能
+<p>
+  <a href="https://github.com/konglong87/dsh-input-list/releases"><img src="https://img.shields.io/github/v/release/konglong87/dsh-input-list?display_name=tag&sort=semver" alt="Latest Release"></a>
+  <a href="https://github.com/konglong87/dsh-input-list/blob/main/LICENSE"><img src="https://img.shields.io/github/license/konglong87/dsh-input-list" alt="License"></a>
+  <a href="https://github.com/konglong87/dsh-input-list/stargazers"><img src="https://img.shields.io/github/stars/konglong87/dsh-input-list?style=flat" alt="GitHub Stars"></a>
+  <a href="https://github.com/konglong87/dsh-input-list/issues"><img src="https://img.shields.io/github/issues/konglong87/dsh-input-list" alt="GitHub Issues"></a>
+</p>
 
-| 功能 | 行为 |
-| --- | --- |
-| 输入框入口 | 点击输入框旁的 `☆` 打开常用内容 |
-| 新增 | 自定义名称和正文 |
-| 编辑 | 修改已有条目的名称、正文 |
-| 删除 | 二次确认后删除 |
-| 保存 | 通过 dsh 宿主设置服务持久化 |
-| 回填草稿 | 点击条目追加正文，保留输入框已有内容 |
-| 显示适配 | 支持浅色、深色外观，弹层随窗口边界定位 |
+<p>
+  <a href="#安装">立即安装</a>
+  ·
+  <a href="#功能">查看功能</a>
+  ·
+  <a href="#效果">查看效果</a>
+  ·
+  <a href="https://github.com/konglong87/dsh-input-list/releases">下载 Release</a>
+</p>
 
-每份列表最多 100 条，名称最多 80 个字符，正文最多 12,000 个字符。
-保存内容属于当前 dsh 宿主设置，不是单个聊天的私有收藏；请勿在共享宿主中保存密码或 API Key。
+</div>
 
-## 效果
+## 一键安装
 
-下图来自隔离测试环境中的实际 dsh 页面，使用演示内容，不包含个人会话或凭据。
-
-### 常用内容列表
-
-![输入框旁打开常用内容列表](docs/images/snippet-list.png)
-
-### 编辑与保存
-
-![编辑常用内容的名称和正文](docs/images/snippet-editor.png)
-
-### 点击回填
-
-![点击条目后正文填入草稿，不自动发送](docs/images/snippet-insert.png)
-
-## 安装
-
-需要已安装 dsh，且 web 客户端提供 `conversation.input.right` 插槽和
-`settingsScope` 服务。先确保 `dsh --version` 能正常运行。
-
-### 从 GitHub 安装
+在已经安装 dsh 的环境中执行：
 
 ```bash
 dsh plugin --profile web add github:konglong87/dsh-input-list
 ```
 
-首次使用 web profile 可先执行 `dsh --profile web`，等待启动后按 Ctrl+C 停止，
-再运行上面的安装命令。安装完成后重启对应的 dsh 进程，并刷新浏览器：
+安装完成后重启 dsh：
 
 ```bash
 dsh --profile web
@@ -60,31 +45,78 @@ dsh --profile web
 dsh --profile web --port 3080 --no-open
 ```
 
-如果该端口已有实例，请先停止旧实例或改用空闲端口。不要把终端输出的登录 token 分享给他人。
+> 当前推荐从 GitHub 或 [Release](https://github.com/konglong87/dsh-input-list/releases) 安装。
+> npm 发布是独立渠道，不能把 GitHub 安装命令和 npm 发布混为一谈。
 
-### 从 Release 安装
+## 项目简介
 
-在 [Releases](https://github.com/konglong87/dsh-input-list/releases) 下载 `.tgz` 插件包，
-使用文件的**绝对路径**安装：
+`dsh-input-list` 是一个面向 dsh 的常用内容插件，适合保存：
 
-```bash
-dsh plugin --profile web add /absolute/path/dsh-input-list-0.1.0.tgz
-```
+- 代码审查要求
+- 写作和翻译模板
+- 项目背景与约束
+- 常用工作流指令
+- 反复使用的角色设定
 
-### npm 状态
+内容保存在 dsh 宿主设置中，跨页面刷新保留。点击列表条目只会把正文追加到当前输入框，原有草稿会被保留，也不会自动发送。
 
-本次发布到 GitHub，不等于发布到 npm。**本仓库初次公开时没有执行 npm 发布。**
-在确认 npm 上已有本作者发布的对应版本前，请使用上面的 GitHub 或 Release 安装方式，
-不要把裸包名安装作为已可用的渠道。
+## 功能
+
+| 能力 | 说明 |
+| --- | --- |
+| `☆` 快捷入口 | 在 dsh 输入框旁打开常用内容列表 |
+| 新增内容 | 自定义名称和正文 |
+| 编辑内容 | 修改已有名称或正文 |
+| 删除内容 | 二次确认后删除，避免误操作 |
+| 持久化保存 | 使用 dsh 设置服务保存，刷新后仍可读取 |
+| 一键回填 | 点击条目追加到当前草稿，不覆盖、不自动发送 |
+| 外观适配 | 支持浅色和深色外观 |
+| 弹层定位 | 根据窗口边界自动调整位置 |
+
+容量限制：
+
+| 项目 | 限制 |
+| --- | ---: |
+| 条目数量 | 100 条 |
+| 名称长度 | 80 个字符 |
+| 正文长度 | 12,000 个字符 |
+
+> 请不要在共享 dsh 宿主中保存密码、API Key 或其他敏感信息。
+
+## 效果
+
+以下截图来自真实 dsh 页面，使用隔离测试环境和演示内容。
+
+<div align="center">
+  <img src="docs/images/snippet-list.png" alt="常用内容列表" width="720">
+  <br>
+  <sub>打开常用内容列表，查看、编辑或删除条目</sub>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="docs/images/snippet-editor.png" alt="编辑常用内容" width="720">
+  <br>
+  <sub>编辑名称和正文后保存</sub>
+</div>
+
+<br>
+
+<div align="center">
+  <img src="docs/images/snippet-insert.png" alt="回填到输入框" width="720">
+  <br>
+  <sub>点击条目后追加到草稿，不自动发送</sub>
+</div>
 
 ## 使用
 
-1. 打开 dsh 的对话输入框，点击右侧 `☆`。
-2. 点击 `+`，填写名称和正文，保存。
-3. 点击列表中的条目，将正文追加到当前草稿；确认后自行发送。
-4. 点击条目旁的铅笔修改，点击垃圾桶并确认后删除。
+1. 打开 dsh 对话页面，找到输入框旁的 `☆`。
+2. 点击 `+`，填写内容名称和正文，然后保存。
+3. 点击列表中的条目，将正文追加到当前草稿。
+4. 点击铅笔图标编辑，点击垃圾桶图标并确认后删除。
 
-插件附带三条演示内容，可以编辑或删除。已有输入内容与插入的正文之间会自动补换行。
+插件默认附带三条演示内容，可以直接编辑或删除。已有输入与新内容之间会自动补换行。
 
 ## 更新与卸载
 
@@ -94,42 +126,32 @@ dsh plugin --profile web add /absolute/path/dsh-input-list-0.1.0.tgz
 dsh plugin --profile web add github:konglong87/dsh-input-list
 ```
 
-检查安装记录：
+查看已安装插件：
 
 ```bash
 dsh plugin --profile web list
 ```
 
-卸载：
+卸载插件：
 
 ```bash
 dsh plugin --profile web remove dsh-input-list
 ```
 
-操作后重启对应 profile。卸载包不等于清空宿主设置，不应依靠卸载来擦除敏感内容。
-如果使用指定 tag/commit 安装，需要将安装引用改为目标版本。
+更新或卸载后请重启对应的 dsh profile。
 
 ## 兼容性
 
-核心功能是输入框的常用内容列表，**不依赖历史消息星标补丁**。
-历史消息的“添加到常用内容”是可选实验功能：只有宿主提供
-`conversation.chat.user-actions` 时才显示，不支持该插槽时跳过。
-本仓库不修改或打补丁到用户的 dsh。
+核心功能依赖以下 dsh 能力：
 
-已验证环境与尚未覆盖的范围见 [验证记录](docs/VERIFICATION.md)。
-不能据此保证所有未来或旧版 dsh 均兼容；无法保存时请先确认连接的宿主提供可写设置服务。
+- `conversation.input.right` 输入框插槽
+- `settingsScope` 设置服务
 
-### 从旧实验包迁移
+历史用户消息下方的快捷收藏属于可选增强能力。只有宿主提供
+`conversation.chat.user-actions` 插槽时才显示；缺少该插槽时，输入框常用内容功能仍可正常使用。
 
-旧包名为 `dsh-input-list-demo`。请不要同时启用新旧两个包：
-
-```bash
-dsh plugin --profile web remove dsh-input-list-demo
-dsh plugin --profile web add github:konglong87/dsh-input-list
-```
-
-内部设置键仍是 `dsh-input-list-demo`，这是为了保留原来的常用内容，并非安装错误。
-迁移前建议备份自己的 dsh 设置。
+本插件不会修改用户的 dsh 安装，也不会自动注入宿主补丁。更多验证信息见
+[验证记录](docs/VERIFICATION.md)。
 
 ## 开发
 
@@ -142,24 +164,30 @@ npm test
 npm pack --dry-run
 ```
 
-仓库提交构建产物，便于 GitHub 安装；改动源码后请重新构建。
+仓库包含构建产物，便于直接从 GitHub 安装。修改源码后请重新执行 `npm run build`。
 
-| 文件 | 职责 |
+| 路径 | 职责 |
 | --- | --- |
-| `cordis.patch.yml` | 告诉 dsh 如何加载插件 |
+| `cordis.patch.yml` | 声明 dsh 插件加载方式 |
 | `src/host.js` | 注册设置结构与服务端校验 |
-| `src/client.jsx` | 注入客户端服务并注册入口 |
-| `src/panel.jsx` | 共用列表、编辑器、删除确认 |
-| `src/model.js` | 常量、校验、条目操作与草稿拼接 |
-| `src/styles.css` | 插件自身样式 |
-| `index.js` / `client.js` | 服务端 / 浏览器构建产物 |
+| `src/client.jsx` | 注册客户端入口和服务依赖 |
+| `src/panel.jsx` | 列表、编辑器、删除确认和回填交互 |
+| `src/model.js` | 常量、校验、条目操作和草稿拼接 |
+| `src/styles.css` | 插件样式 |
+| `index.js` / `client.js` | dsh 服务端与浏览器构建产物 |
 | `tests/` | 加载、兼容性和数据操作测试 |
 
-## 文档与反馈
+## 版本与文档
 
 - [版本记录](CHANGELOG.md)
+- [验证记录](docs/VERIFICATION.md)
 - [发布指南](PUBLISH.md)
-- [实验宿主插槽说明](HOST-INTEGRATION.md)
-- [反馈问题](https://github.com/konglong87/dsh-input-list/issues)
+- [宿主集成说明](HOST-INTEGRATION.md)
+- [问题反馈](https://github.com/konglong87/dsh-input-list/issues)
 
-反馈请附 dsh 版本、插件版本、安装方式、复现步骤和脱敏截图；不要上传 token、API Key 或个人会话。
+## 开源协议
+
+本项目基于 [MIT License](LICENSE) 开源。
+
+反馈问题时请附 dsh 版本、插件版本、安装方式、复现步骤和脱敏截图。
+请不要上传登录 token、API Key 或个人会话内容。

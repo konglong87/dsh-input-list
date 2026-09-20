@@ -2,6 +2,7 @@
   "name": "dsh-input-list",
   "version": "0.1.0",
   "description": "DSH saved prompt snippets with editing and draft insertion.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/konglong87/dsh-input-list.git"
