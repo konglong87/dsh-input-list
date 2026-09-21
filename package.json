@@ -39,7 +39,8 @@
     "HOST-INTEGRATION.md",
     "PUBLISH.md",
     "CHANGELOG.md",
-    "docs"
+    "docs",
+    "screenshots.json"
   ],
   "scripts": {
     "build": "node build.mjs",
