@@ -6,6 +6,8 @@
 
 保存、编辑、删除和复用你的常用内容，点击后追加到当前草稿，不自动发送。
 
+它也可以理解为 dsh 的**提示词收藏夹、Prompt 模板库和可复用文本管理器**，适合保存经常重复使用的工作流指令、角色设定和项目约束。
+
 <p>
   <a href="https://github.com/konglong87/dsh-input-list/releases"><img src="https://img.shields.io/github/v/release/konglong87/dsh-input-list?display_name=tag&sort=semver" alt="Latest Release"></a>
   <a href="https://github.com/konglong87/dsh-input-list/blob/main/LICENSE"><img src="https://img.shields.io/github/license/konglong87/dsh-input-list" alt="License"></a>
@@ -117,6 +119,25 @@ dsh --profile web --port 3080 --no-open
 4. 点击铅笔图标编辑，点击垃圾桶图标并确认后删除。
 
 插件默认附带三条演示内容，可以直接编辑或删除。已有输入与新内容之间会自动补换行。
+
+## 常见问题
+
+### 这是提示词管理器吗？
+
+是。它可以保存、编辑、删除和复用常用提示词、Prompt 模板、工作流指令和其他可复用文本。
+
+### 点击条目会自动发送吗？
+
+不会。点击条目只会把内容追加到当前草稿，发送前仍由用户确认。
+
+### 它和 Skill 有什么区别？
+
+常用内容是用户自己保存的文本；Skill 是由 dsh 宿主加载的结构化工作方式。需要选择 Skill 时，请使用
+[`dsh-skills-input`](https://github.com/konglong87/dsh-skills-input)。
+
+### 内容保存在哪里？
+
+内容保存在 dsh 宿主设置中，不建立独立数据库；刷新页面后仍然保留。
 
 ## 更新与卸载
 

@@ -1,7 +1,7 @@
 {
   "name": "dsh-input-list",
-  "version": "0.1.0",
-  "description": "DSH saved prompt snippets with editing and draft insertion.",
+  "version": "0.1.1",
+  "description": "DSH prompt library and reusable snippets plugin for saving, editing, and inserting prompts from the composer.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,7 +11,22 @@
   "bugs": {
     "url": "https://github.com/konglong87/dsh-input-list/issues"
   },
-  "keywords": ["dsh", "dsh-plugin", "deepseek", "snippets"],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "deepseek-harness",
+    "prompt",
+    "prompt-template",
+    "prompt-library",
+    "prompt-manager",
+    "saved-prompts",
+    "snippets",
+    "composer",
+    "reusable-content",
+    "提示词",
+    "常用内容"
+  ],
   "type": "module",
   "main": "index.js",
   "exports": {
